@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="音樂盒裡的科學秘密 — 8 個有趣的互動實驗，適合國小 1～6 年級學生探索聲音、振動、共鳴等原理。">
+  <title>🎵 音樂盒裡的科學秘密 — 互動教學實驗</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <span class="nav-logo">🎵 音樂盒科學</span>
+    <ul class="nav-links">
+      <li><a href="#intro">🎁 原理</a></li>
+      <li><a href="#exp7">👀 看得見</a></li>
+      <li><a href="#exp1">📏 尺子琴</a></li>
+      <li><a href="#exp2">🎸 吉他</a></li>
+      <li><a href="#exp4">🎶 口琴</a></li>
+      <li><a href="#exp5">🥂 鐘琴</a></li>
+      <li><a href="#exp3">📦 共鳴</a></li>
+      <li><a href="#exp8">📞 電話</a></li>
+      <li><a href="#exp6">🎁 DIY</a></li>
+      <li><a href="#quiz">🎓 測驗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-bg-decor">
+    <span class="floating-note" style="top:10%;left:8%;animation-delay:0s;">🎵</span>
+    <span class="floating-note" style="top:20%;right:12%;animation-delay:1.5s;font-size:2.5rem;">🎶</span>
+    <span class="floating-note" style="top:55%;left:5%;animation-delay:3s;font-size:1.8rem;">♪</span>
+    <span class="floating-note" style="top:70%;right:8%;animation-delay:2s;">🎵</span>
+    <span class="floating-note" style="top:35%;left:15%;animation-delay:4s;font-size:3rem;">♫</span>
+    <span class="floating-note" style="top:80%;left:20%;animation-delay:1s;font-size:1.5rem;">🎶</span>
+    <span class="floating-note" style="top:15%;right:25%;animation-delay:2.5s;font-size:2.2rem;">♪</span>
+    <span class="floating-note" style="top:60%;right:20%;animation-delay:3.5s;">♫</span>
+  </div>
+  <img src="assets/hero-bg.png" alt="可愛的音樂盒插圖" style="width: min(350px, 60vw); border-radius: 30px; margin-bottom: 24px; box-shadow: 0 12px 40px rgba(255,107,157,0.25); position: relative; z-index: 1;">
+  <h1 class="hero-title">音樂盒裡的<br>科學秘密 🔬</h1>
+  <p class="hero-subtitle">轉動發條、齒片振動、旋律響起 —— 一個小小的音樂盒，藏著好多好多的科學原理！讓我們一起動手做實驗來發現吧！</p>
+  <a href="#intro" class="hero-cta">🚀 開始探索！</a>
+  <div class="hero-scroll-hint">⬇️</div>
+</section>
+
+<!-- ============ 音樂盒原理介紹 + 互動3：結構分解 ============ -->
+<section class="experiment-section" id="intro" style="background: linear-gradient(180deg, #FFF7ED, #FFF0F5);">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-badge badge-pink">🎁 音樂盒的秘密</span>
+      <h2 class="section-title">音樂盒是怎麼發出聲音的？</h2>
+      <p class="section-subtitle">點擊「拆解」按鈕，把音樂盒拆開來看看裡面有什麼零件！</p>
+    </div>
+
+    <!-- 互動3：音樂盒結構分解動畫 -->
+    <div class="sim-container reveal" id="music-box-explode">
+      <div class="sim-title">🔧 互動探索：音樂盒拆解</div>
+      <div class="music-box-stage" id="mb-stage">
+        <!-- JS 會動態繪製 SVG 零件 -->
+      </div>
+      <div id="part-info" style="text-align:center; min-height:60px; padding:12px; font-size:0.95rem; color:#4B4578;"></div>
+      <div class="mb-controls" style="justify-content:center;">
+        <button class="sim-play-btn" id="explode-btn">💥 拆解</button>
+        <button class="sim-play-btn" id="assemble-btn" style="background: linear-gradient(135deg, #34D399, #38BDF8);">🔧 組裝</button>
+      </div>
+    </div>
+
+    <!-- 原理對照表 -->
+    <div class="reveal">
+      <table class="obs-table">
+        <thead><tr><th>零件</th><th>功能</th><th>對應科學原理</th></tr></thead>
+        <tbody>
+          <tr><td>🎵 音梳（齒片）</td><td>被撥動後振動發出聲音</td><td>振動產生聲音</td></tr>
+          <tr><td>🔄 滾筒（圓筒）</td><td>表面凸點依序撥動齒片</td><td>機械傳動 + 編碼</td></tr>
+          <tr><td>🔑 發條</td><td>儲存能量，驅動滾筒旋轉</td><td>彈力位能 → 動能</td></tr>
+          <tr><td>📦 外殼（木盒）</td><td>放大聲音，讓旋律更好聽</td><td>共鳴箱原理</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="connection-box reveal">
+      💡 <strong>接下來的 8 個實驗</strong>，我們會一個一個探索這些科學原理。準備好了嗎？Let's go！🚀
+    </div>
+  </div>
+</section>
+
+<!-- ============ 實驗 7：聲音看得見 ============ -->
+<section class="experiment-section" id="exp7">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-badge badge-purple">👀 實驗 7</span>
+      <h2 class="section-title">聲音看得見 — 振動視覺化</h2>
+      <p class="section-subtitle">聲音是看不見的？錯！讓鹽巴來幫我們「看見」聲音！</p>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-card"><div class="info-card-icon">🎯</div><div class="info-card-label">核心原理</div><div class="info-card-value">振動 = 聲音</div></div>
+      <div class="info-card"><div class="info-card-icon">👦</div><div class="info-card-label">適合年級</div><div class="info-card-value">1～6 年級</div></div>
+      <div class="info-card"><div class="info-card-icon">💰</div><div class="info-card-label">材料費</div><div class="info-card-value">$0</div></div>
+      <div class="info-card"><div class="info-card-icon">⏱️</div><div class="info-card-label">所需時間</div><div class="info-card-value">10 分鐘</div></div>
+    </div>
+
+    <div class="steps-container reveal" data-steps="exp7">
+      <div class="steps-progress" id="exp7-progress"></div>
+      <div class="steps-viewport">
+        <div class="step-card active" data-step="1"><div class="step-number">1</div><div class="step-text">將<span class="step-highlight">保鮮膜</span>緊緊繃在碗口上，用橡皮筋固定。記得要繃很緊喔！💪</div></div>
+        <div class="step-card" data-step="2"><div class="step-number">2</div><div class="step-text">在保鮮膜上均勻撒少量<span class="step-highlight">鹽巴或細砂</span>。</div></div>
+        <div class="step-card" data-step="3"><div class="step-number">3</div><div class="step-text">把金屬鍋放在碗旁邊（約 5～10 cm），用湯匙<span class="step-highlight">大力敲鍋子</span>！🔨</div></div>
+        <div class="step-card" data-step="4"><div class="step-number">4</div><div class="step-text">觀察保鮮膜上的鹽巴 → <span class="step-highlight">它們在跳舞！</span> 💃 聲音越大，鹽巴跳越高！</div></div>
+        <div class="step-card" data-step="5"><div class="step-number">5</div><div class="step-text">試試看：<span class="step-highlight">靠近敲 vs. 遠離敲</span>，鹽巴跳的高度有差嗎？距離越遠，聲音能量越小！</div></div>
+      </div>
+      <div class="step-nav">
+        <button class="step-btn" data-dir="prev" disabled>⬅️ 上一步</button>
+        <button class="step-btn" data-dir="next">下一步 ➡️</button>
+      </div>
+    </div>
+
+    <div class="question-box reveal">
+      <h4>❓ 想一想</h4>
+      <ul>
+        <li>🤔 你沒有碰到保鮮膜，鹽巴為什麼會跳？</li>
+        <li>🤔 是什麼把鍋子的振動傳到保鮮膜上的？</li>
+        <li>🤔 距離越遠，鹽巴跳的幅度怎麼變化？</li>
+      </ul>
+    </div>
+
+    <div class="connection-box reveal">
+      🎵 <strong>連結音樂盒</strong>：音樂盒齒片振動產生聲波 → 聲波讓空氣振動 → 就像讓鹽巴跳舞一樣！
+    </div>
+
+    <div class="warning-box reveal">
+      <span class="warn-icon">⚠️</span>
+      <div><ul>
+        <li>保鮮膜要繃很緊才有效果</li>
+        <li>不要讓鹽巴掉進眼睛</li>
+        <li>敲鍋子會很大聲，可能需要提前通知隔壁班 😅</li>
+      </ul></div>
+    </div>
+
+    <div class="extension-box reveal">
+      <h4>🚀 延伸挑戰</h4>
+      <ul>
+        <li>對著保鮮膜唱不同音高的歌，觀察鹽巴反應</li>
+        <li>搜尋「克拉尼圖形 Chladni patterns」看更炫的版本</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 實驗 1：尺子琴 ============ -->
+<section class="experiment-section" id="exp1">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-badge badge-gold">📏 實驗 1</span>
+      <h2 class="section-title">尺子琴 — 振動與音高</h2>
+      <p class="section-subtitle">一支尺子就能彈音樂？來發現「長度」和「音高」的祕密！</p>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-card"><div class="info-card-icon">🎯</div><div class="info-card-label">核心原理</div><div class="info-card-value">長度 → 音高</div></div>
+      <div class="info-card"><div class="info-card-icon">👦</div><div class="info-card-label">適合年級</div><div class="info-card-value">1～2 年級</div></div>
+      <div class="info-card"><div class="info-card-icon">💰</div><div class="info-card-label">材料費</div><div class="info-card-value">$0</div></div>
+      <div class="info-card"><div class="info-card-icon">⏱️</div><div class="info-card-label">所需時間</div><div class="info-card-value">10 分鐘</div></div>
+    </div>
+
+    <div class="steps-container reveal" data-steps="exp1">
+      <div class="steps-progress" id="exp1-progress"></div>
+      <div class="steps-viewport">
+        <div class="step-card active" data-step="1"><div class="step-number">1</div><div class="step-text">把塑膠尺放在桌緣，讓 <span class="step-highlight">5cm</span> 伸出桌面。</div></div>
+        <div class="step-card" data-step="2"><div class="step-number">2</div><div class="step-text">一手<span class="step-highlight">壓緊</span>桌面上的尺子，另一手撥動伸出端。聽聽看！👂</div></div>
+        <div class="step-card" data-step="3"><div class="step-number">3</div><div class="step-text">改成 <span class="step-highlight">10cm、15cm、20cm</span> 伸出，每次都撥動聽聽看。</div></div>
+        <div class="step-card" data-step="4"><div class="step-number">4</div><div class="step-text">發現了嗎？伸出越長 → 振動越慢 → 聲音越<span class="step-highlight">低</span>！ 🎵</div></div>
+      </div>
+      <div class="step-nav">
+        <button class="step-btn" data-dir="prev" disabled>⬅️ 上一步</button>
+        <button class="step-btn" data-dir="next">下一步 ➡️</button>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <table class="obs-table">
+        <thead><tr><th>伸出長度</th><th>振動速度</th><th>音高</th></tr></thead>
+        <tbody>
+          <tr><td>5 cm</td><td>很快（幾乎看不到）</td><td>🔴 高音</td></tr>
+          <tr><td>10 cm</td><td>快</td><td>🟠 中高音</td></tr>
+          <tr><td>15 cm</td><td>中等</td><td>🟡 中音</td></tr>
+          <tr><td>20 cm</td><td>慢（明顯看到）</td><td>🔵 低音</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="question-box reveal">
+      <h4>❓ 想一想</h4>
+      <ul>
+        <li>🤔 尺子伸出越長，聲音變高還是變低？</li>
+        <li>🤔 你看到尺子振動的速度有什麼變化？</li>
+        <li>🤔 如果想發出很高的聲音，尺子要伸出多少？</li>
+      </ul>
+    </div>
+
+    <div class="connection-box reveal">
+      🎵 <strong>連結音樂盒</strong>：音樂盒裡的金屬齒片就像不同長度的尺子，短齒片發高音、長齒片發低音！
+    </div>
+
+    <div class="warning-box reveal">
+      <span class="warn-icon">⚠️</span>
+      <div><ul>
+        <li>使用<strong>塑膠尺</strong>而非金屬尺（金屬尺邊緣鋒利）</li>
+        <li>壓住的手要壓緊，否則尺子會飛出去</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 實驗 2：橡皮筋吉他 + 互動1：波形模擬器 ============ -->
+<section class="experiment-section" id="exp2">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-badge badge-coral">🎸 實驗 2</span>
+      <h2 class="section-title">橡皮筋吉他 — 粗細與音高</h2>
+      <p class="section-subtitle">用面紙盒和橡皮筋，做出自己的小吉他！</p>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-card"><div class="info-card-icon">🎯</div><div class="info-card-label">核心原理</div><div class="info-card-value">粗細/鬆緊 → 音高</div></div>
+      <div class="info-card"><div class="info-card-icon">👦</div><div class="info-card-label">適合年級</div><div class="info-card-value">1～3 年級</div></div>
+      <div class="info-card"><div class="info-card-icon">💰</div><div class="info-card-label">材料費</div><div class="info-card-value">$10 以內</div></div>
+      <div class="info-card"><div class="info-card-icon">⏱️</div><div class="info-card-label">所需時間</div><div class="info-card-value">15 分鐘</div></div>
+    </div>
+
+    <div class="steps-container reveal" data-steps="exp2">
+      <div class="steps-progress" id="exp2-progress"></div>
+      <div class="steps-viewport">
+        <div class="step-card active" data-step="1"><div class="step-number">1</div><div class="step-text">將 4～5 條<span class="step-highlight">粗細不同</span>的橡皮筋，套在面紙盒的開口處。</div></div>
+        <div class="step-card" data-step="2"><div class="step-number">2</div><div class="step-text">用手指撥動每條橡皮筋，仔細聽音高差異。</div></div>
+        <div class="step-card" data-step="3"><div class="step-number">3</div><div class="step-text">嘗試<span class="step-highlight">拉緊</span>某條橡皮筋再撥 → 音高變高！<span class="step-highlight">放鬆</span>→ 音高變低！</div></div>
+        <div class="step-card" data-step="4"><div class="step-number">4</div><div class="step-text">挑戰：能用橡皮筋吉他彈出<span class="step-highlight">「小星星」</span>嗎？🌟</div></div>
+      </div>
+      <div class="step-nav">
+        <button class="step-btn" data-dir="prev" disabled>⬅️ 上一步</button>
+        <button class="step-btn" data-dir="next">下一步 ➡️</button>
+      </div>
+    </div>
+
+    <!-- 互動1：聲音波形模擬器 -->
+    <div class="sim-container reveal">
+      <div class="sim-title">🌊 互動模擬：聲音波形模擬器</div>
+      <p style="font-size:0.9rem; color:#8B83B0; margin-bottom:16px;">調整弦的長度和粗細，看看波形和音高怎麼變化！</p>
+      <canvas id="wave-canvas"></canvas>
+      <div class="sim-controls">
+        <div class="sim-control-group">
+          <label>📏 弦的長度（短 → 長）</label>
+          <input type="range" class="sim-slider" id="wave-length" min="1" max="10" value="5">
+          <div class="sim-value" id="wave-length-val">5</div>
+        </div>
+        <div class="sim-control-group">
+          <label>🧵 弦的粗細（細 → 粗）</label>
+          <input type="range" class="sim-slider" id="wave-thickness" min="1" max="10" value="3">
+          <div class="sim-value" id="wave-thickness-val">3</div>
+        </div>
+        <div>
+          <button class="sim-play-btn" id="wave-play-btn">🔊 播放聲音</button>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:16px;">
+        <span style="font-size:0.9rem; color:#8B83B0;">頻率：</span>
+        <span id="wave-freq-display" style="font-weight:900; color:#C084FC; font-size:1.2rem;">500 Hz</span>
+        <span style="margin-left:16px; font-size:0.9rem; color:#8B83B0;">音高：</span>
+        <span id="wave-pitch-label" style="font-weight:900; color:#FF6B9D; font-size:1.2rem;">中音</span>
+      </div>
+    </div>
+
+    <div class="connection-box reveal">
+      🎵 <strong>連結音樂盒</strong>：音樂盒的齒片就像不同粗細的弦，每一片對應一個音符！
+    </div>
+
+    <div class="warning-box reveal">
+      <span class="warn-icon">⚠️</span>
+      <div><ul>
+        <li>橡皮筋不要拉太緊，會斷裂彈到手</li>
+        <li>提醒不要用橡皮筋射人 😄</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 實驗 4：梳子口琴 ============ -->
+<section class="experiment-section" id="exp4">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-badge badge-mint">🎶 實驗 4</span>
+      <h2 class="section-title">梳子口琴 — 自製簧片樂器</h2>
+      <p class="section-subtitle">用一把梳子和一張紙，就能做出會唱歌的樂器！</p>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-card"><div class="info-card-icon">🎯</div><div class="info-card-label">核心原理</div><div class="info-card-value">薄片振動發聲</div></div>
+      <div class="info-card"><div class="info-card-icon">👦</div><div class="info-card-label">適合年級</div><div class="info-card-value">3～4 年級</div></div>
+      <div class="info-card"><div class="info-card-icon">💰</div><div class="info-card-label">材料費</div><div class="info-card-value">$5</div></div>
+      <div class="info-card"><div class="info-card-icon">⏱️</div><div class="info-card-label">所需時間</div><div class="info-card-value">10 分鐘</div></div>
+    </div>
+
+    <div class="steps-container reveal" data-steps="exp4">
+      <div class="steps-progress" id="exp4-progress"></div>
+      <div class="steps-viewport">
+        <div class="step-card active" data-step="1"><div class="step-number">1</div><div class="step-text">將薄紙裁成跟<span class="step-highlight">梳子一樣大</span>，蓋在梳齒那一面。</div></div>
+        <div class="step-card" data-step="2"><div class="step-number">2</div><div class="step-text">將嘴唇<span class="step-highlight">輕輕貼在紙上</span>（不要用牙齒咬！）</div></div>
+        <div class="step-card" data-step="3"><div class="step-number">3</div><div class="step-text">用「呼～～」的方式<span class="step-highlight">輕輕吹氣</span> 🌬️</div></div>
+        <div class="step-card" data-step="4"><div class="step-number">4</div><div class="step-text">感覺嘴唇的<span class="step-highlight">麻麻震動</span> → 就是紙在振動發聲！嗡嗡嗡～ 🐝</div></div>
+      </div>
+      <div class="step-nav">
+        <button class="step-btn" data-dir="prev" disabled>⬅️ 上一步</button>
+        <button class="step-btn" data-dir="next">下一步 ➡️</button>
+      </div>
+    </div>
+
+    <div class="question-box reveal">
+      <h4>❓ 想一想</h4>
+      <ul>
+        <li>🤔 嘴唇有什麼感覺？為什麼？</li>
+        <li>🤔 用力吹和輕輕吹，聲音有什麼不同？</li>
+        <li>🤔 如果沒有梳子，只有紙，吹得出聲音嗎？</li>
+      </ul>
+    </div>
+
+    <div class="connection-box reveal">
+      🎵 <strong>連結音樂盒</strong>：音樂盒的齒片被撥動後振動，就像紙在梳齒上振動一樣！
+    </div>
+
+    <div class="warning-box reveal">
+      <span class="warn-icon">⚠️</span>
+      <div><ul>
+        <li>⚠️ <strong>衛生考量</strong>：每人用自己的梳子和紙，不要共用！</li>
+        <li>吹累了就休息，避免頭暈</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 實驗 5：水杯鐘琴 + 互動2：水杯鐘琴互動器 ============ -->
+<section class="experiment-section" id="exp5">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-badge badge-sky">🥂 實驗 5</span>
+      <h2 class="section-title">水杯鐘琴 — 水量調音</h2>
+      <p class="section-subtitle">不同水量的杯子能敲出美妙的音階！🎵</p>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-card"><div class="info-card-icon">🎯</div><div class="info-card-label">核心原理</div><div class="info-card-value">質量 → 頻率</div></div>
+      <div class="info-card"><div class="info-card-icon">👦</div><div class="info-card-label">適合年級</div><div class="info-card-value">3～5 年級</div></div>
+      <div class="info-card"><div class="info-card-icon">💰</div><div class="info-card-label">材料費</div><div class="info-card-value">$0</div></div>
+      <div class="info-card"><div class="info-card-icon">⏱️</div><div class="info-card-label">所需時間</div><div class="info-card-value">20 分鐘</div></div>
+    </div>
+
+    <div class="steps-container reveal" data-steps="exp5">
+      <div class="steps-progress" id="exp5-progress"></div>
+      <div class="steps-viewport">
+        <div class="step-card active" data-step="1"><div class="step-number">1</div><div class="step-text">將 5～8 個<span class="step-highlight">相同大小的玻璃杯</span>排成一排。</div></div>
+        <div class="step-card" data-step="2"><div class="step-number">2</div><div class="step-text">每個杯子倒入<span class="step-highlight">不同高度</span>的水（第一個最少，最後一個最多）。</div></div>
+        <div class="step-card" data-step="3"><div class="step-number">3</div><div class="step-text">用湯匙<span class="step-highlight">輕敲</span>杯壁上方，聽聽看音高變化！👂</div></div>
+        <div class="step-card" data-step="4"><div class="step-number">4</div><div class="step-text">水越多 → 音越<span class="step-highlight">低</span>，水越少 → 音越<span class="step-highlight">高</span>！</div></div>
+        <div class="step-card" data-step="5"><div class="step-number">5</div><div class="step-text">微調水量，嘗試敲出<span class="step-highlight">「Do Re Mi Fa Sol La Si Do」</span>！🎶</div></div>
+      </div>
+      <div class="step-nav">
+        <button class="step-btn" data-dir="prev" disabled>⬅️ 上一步</button>
+        <button class="step-btn" data-dir="next">下一步 ➡️</button>
+      </div>
+    </div>
+
+    <!-- 互動2：水杯鐘琴互動器 -->
+    <div class="sim-container reveal">
+      <div class="sim-title">🥂 互動模擬：水杯鐘琴</div>
+      <p style="font-size:0.9rem; color:#8B83B0; margin-bottom:16px;">點擊杯子敲出聲音！拖動水位來調音。試試能不能彈出「小星星」？ 🌟</p>
+      <div id="glass-piano-container" class="glass-piano-area">
+        <!-- JS 動態生成水杯 -->
+      </div>
+      <div style="text-align:center; margin-top:12px;">
+        <button class="sim-play-btn" id="star-challenge-btn" style="background: linear-gradient(135deg, #FBBF24, #FB923C);">🎵 小星星挑戰</button>
+      </div>
+    </div>
+
+    <div class="question-box reveal">
+      <h4>❓ 想一想</h4>
+      <ul>
+        <li>🤔 水多的杯子聲音高還是低？為什麼？</li>
+        <li>🤔 杯子和水，到底是什麼在振動？（提示：是杯壁！）</li>
+        <li>🤔 跟音樂盒的齒片比較：齒片越長（越重）音越？</li>
+      </ul>
+    </div>
+
+    <div class="connection-box reveal">
+      🎵 <strong>連結音樂盒</strong>：音樂盒用不同長度的齒片控制音高，水杯鐘琴用不同水量控制音高，原理相同——改變振動物體的質量！
+    </div>
+
+    <div class="warning-box reveal">
+      <span class="warn-icon">⚠️</span>
+      <div><ul>
+        <li>玻璃杯小心打破！可用塑膠杯替代（但聲音較悶）</li>
+        <li>桌面鋪報紙或抹布防水</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 實驗 3：共鳴大發現 + 互動4：共鳴箱模擬器 ============ -->
+<section class="experiment-section" id="exp3">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-badge badge-orange">📦 實驗 3</span>
+      <h2 class="section-title">共鳴大發現 — 為什麼音樂盒要有「盒子」？</h2>
+      <p class="section-subtitle">同一首歌放在不同容器裡，音量竟然差這麼多！</p>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-card"><div class="info-card-icon">🎯</div><div class="info-card-label">核心原理</div><div class="info-card-value">共鳴箱放大聲音</div></div>
+      <div class="info-card"><div class="info-card-icon">👦</div><div class="info-card-label">適合年級</div><div class="info-card-value">3～4 年級</div></div>
+      <div class="info-card"><div class="info-card-icon">💰</div><div class="info-card-label">材料費</div><div class="info-card-value">$0</div></div>
+      <div class="info-card"><div class="info-card-icon">⏱️</div><div class="info-card-label">所需時間</div><div class="info-card-value">15 分鐘</div></div>
+    </div>
+
+    <div class="steps-container reveal" data-steps="exp3">
+      <div class="steps-progress" id="exp3-progress"></div>
+      <div class="steps-viewport">
+        <div class="step-card active" data-step="1"><div class="step-number">1</div><div class="step-text">手機播放同一首歌，音量固定在中等。</div></div>
+        <div class="step-card" data-step="2"><div class="step-number">2</div><div class="step-text">手機放桌面，全班安靜聽 10 秒，記錄<span class="step-highlight">音量感受（1～5 分）</span>。</div></div>
+        <div class="step-card" data-step="3"><div class="step-number">3</div><div class="step-text">依序放入<span class="step-highlight">紙杯、碗、鞋盒、鐵罐</span>中，各聽 10 秒評分。</div></div>
+        <div class="step-card" data-step="4"><div class="step-number">4</div><div class="step-text">比較各容器的評分。<span class="step-highlight">哪個最大聲？哪個最好聽？</span> 🤔</div></div>
+      </div>
+      <div class="step-nav">
+        <button class="step-btn" data-dir="prev" disabled>⬅️ 上一步</button>
+        <button class="step-btn" data-dir="next">下一步 ➡️</button>
+      </div>
+    </div>
+
+    <!-- 互動4：共鳴箱模擬器 -->
+    <div class="sim-container reveal">
+      <div class="sim-title">📦 互動模擬：共鳴箱實驗</div>
+      <p style="font-size:0.9rem; color:#8B83B0; margin-bottom:16px;">選擇不同容器，聽聽音量和音色的變化！</p>
+      <div id="resonance-sim">
+        <div class="resonance-stage">
+          <div class="resonance-phone" id="res-phone">🔊</div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+            <div class="resonance-container-option" data-container="none">
+              <span class="container-icon">🚫</span>
+              <span class="container-name">無容器</span>
+            </div>
+            <div class="resonance-container-option" data-container="cup">
+              <span class="container-icon">🥤</span>
+              <span class="container-name">紙杯</span>
+            </div>
+            <div class="resonance-container-option" data-container="bowl">
+              <span class="container-icon">🥣</span>
+              <span class="container-name">碗</span>
+            </div>
+            <div class="resonance-container-option" data-container="box">
+              <span class="container-icon">📦</span>
+              <span class="container-name">鞋盒</span>
+            </div>
+            <div class="resonance-container-option" data-container="can">
+              <span class="container-icon">🥫</span>
+              <span class="container-name">鐵罐</span>
+            </div>
+          </div>
+        </div>
+        <div class="volume-meter">
+          <div class="volume-fill" id="volume-meter-fill"></div>
+        </div>
+        <div class="volume-label" id="volume-label-text">點擊容器開始實驗</div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <table class="obs-table">
+        <thead><tr><th>容器</th><th>預期效果</th><th>原因</th></tr></thead>
+        <tbody>
+          <tr><td>🚫 桌面（無容器）</td><td>小</td><td>沒有共鳴空間</td></tr>
+          <tr><td>🥤 紙杯</td><td>中等</td><td>有方向性集中</td></tr>
+          <tr><td>🥣 陶瓷碗</td><td>中偏大</td><td>硬壁反射好</td></tr>
+          <tr><td>📦 鞋盒</td><td>大</td><td>空間大+適度吸收</td></tr>
+          <tr><td>🥫 鐵罐</td><td>最大但有回音</td><td>金屬反射強</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="connection-box reveal">
+      🎵 <strong>連結音樂盒</strong>：音樂盒的木盒就是一個「共鳴箱」！沒有盒子的音樂盒，聲音會小到幾乎聽不到喔！
+    </div>
+  </div>
+</section>
+
+<!-- ============ 實驗 8：傳聲筒電話 ============ -->
+<section class="experiment-section" id="exp8">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-badge badge-pink">📞 實驗 8</span>
+      <h2 class="section-title">傳聲筒電話 — 聲音的傳播</h2>
+      <p class="section-subtitle">兩個紙杯 + 一條線 = 打電話！聲音是怎麼跑過去的？</p>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-card"><div class="info-card-icon">🎯</div><div class="info-card-label">核心原理</div><div class="info-card-value">聲音透過固體傳播</div></div>
+      <div class="info-card"><div class="info-card-icon">👦</div><div class="info-card-label">適合年級</div><div class="info-card-value">1～3 年級</div></div>
+      <div class="info-card"><div class="info-card-icon">💰</div><div class="info-card-label">材料費</div><div class="info-card-value">$10 以內</div></div>
+      <div class="info-card"><div class="info-card-icon">⏱️</div><div class="info-card-label">所需時間</div><div class="info-card-value">15 分鐘</div></div>
+    </div>
+
+    <div class="steps-container reveal" data-steps="exp8">
+      <div class="steps-progress" id="exp8-progress"></div>
+      <div class="steps-viewport">
+        <div class="step-card active" data-step="1"><div class="step-number">1</div><div class="step-text">在兩個紙杯底部中央各戳一個<span class="step-highlight">小洞</span>。</div></div>
+        <div class="step-card" data-step="2"><div class="step-number">2</div><div class="step-text">穿入棉線，杯內用迴紋針或<span class="step-highlight">打結</span>固定。</div></div>
+        <div class="step-card" data-step="3"><div class="step-number">3</div><div class="step-text">兩個人各拿一個杯子，走到<span class="step-highlight">線拉緊</span>為止。</div></div>
+        <div class="step-card" data-step="4"><div class="step-number">4</div><div class="step-text">一人對杯口<span class="step-highlight">小聲說話</span>，另一人將杯口貼耳聽。能聽清楚嗎？ 🎉</div></div>
+        <div class="step-card" data-step="5"><div class="step-number">5</div><div class="step-text">進階測試：線<span class="step-highlight">鬆掉</span>了還聽得到嗎？有人<span class="step-highlight">捏住線</span>呢？</div></div>
+      </div>
+      <div class="step-nav">
+        <button class="step-btn" data-dir="prev" disabled>⬅️ 上一步</button>
+        <button class="step-btn" data-dir="next">下一步 ➡️</button>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <table class="obs-table">
+        <thead><tr><th>條件</th><th>效果</th></tr></thead>
+        <tbody>
+          <tr><td>棉線拉緊</td><td>✅ 清楚聽到</td></tr>
+          <tr><td>棉線鬆弛</td><td>❌ 幾乎聽不到</td></tr>
+          <tr><td>手捏住線</td><td>🔇 聲音大幅減弱</td></tr>
+          <tr><td>換釣魚線</td><td>✅ 可能更清楚</td></tr>
+          <tr><td>換毛線</td><td>❌ 效果差</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="connection-box reveal">
+      🎵 <strong>連結音樂盒</strong>：音樂盒的齒片振動，透過金屬傳到木盒，木盒再把聲音放大傳到空氣中——聲音會透過不同介質傳播！
+    </div>
+  </div>
+</section>
+
+<!-- ============ 實驗 6：紙盒音樂盒 DIY ============ -->
+<section class="experiment-section" id="exp6" style="background: linear-gradient(180deg, #FFF7ED, #E9D5FF);">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-badge badge-purple">🎁 實驗 6 — 大魔王關！</span>
+      <h2 class="section-title">紙盒音樂盒 DIY 🏆</h2>
+      <p class="section-subtitle">整合所有原理，動手做一個真正的簡易音樂盒！</p>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-card"><div class="info-card-icon">🎯</div><div class="info-card-label">核心原理</div><div class="info-card-value">全部整合！</div></div>
+      <div class="info-card"><div class="info-card-icon">👦</div><div class="info-card-label">適合年級</div><div class="info-card-value">5～6 年級</div></div>
+      <div class="info-card"><div class="info-card-icon">💰</div><div class="info-card-label">材料費</div><div class="info-card-value">$20～30</div></div>
+      <div class="info-card"><div class="info-card-icon">⏱️</div><div class="info-card-label">所需時間</div><div class="info-card-value">40～60 分鐘</div></div>
+    </div>
+
+    <div class="steps-container reveal" data-steps="exp6">
+      <div class="steps-progress" id="exp6-progress"></div>
+      <div class="steps-viewport">
+        <div class="step-card active" data-step="1"><div class="step-number">1</div><div class="step-text"><strong>製作音梳 🎵</strong>：將冰棒棍裁成 5～8 種<span class="step-highlight">不同長度</span>（最短 3cm、最長 8cm），用熱熔膠並排黏在厚紙板邊緣。</div></div>
+        <div class="step-card" data-step="2"><div class="step-number">2</div><div class="step-text"><strong>製作滾筒 🔄</strong>：取保鮮膜紙芯，在表面用熱熔膠點出<span class="step-highlight">「凸點」</span>。凸點的位置就是你的<strong>「樂譜」</strong>！</div></div>
+        <div class="step-card" data-step="3"><div class="step-number">3</div><div class="step-text"><strong>組裝框架 🏗️</strong>：用厚紙板做 ㄇ 字型支架，竹籤穿過圓筒架在支架上，讓凸點能碰到齒片。</div></div>
+        <div class="step-card" data-step="4"><div class="step-number">4</div><div class="step-text"><strong>測試 🎶</strong>：手動轉動竹籤，凸點依序<span class="step-highlight">撥動齒片發聲</span>！不同長度的齒片發出不同音高！</div></div>
+        <div class="step-card" data-step="5"><div class="step-number">5</div><div class="step-text"><strong>優化 ✨</strong>：調整凸點位置改變旋律，底部加紙盒當<span class="step-highlight">共鳴箱</span>放大音量！</div></div>
+      </div>
+      <div class="step-nav">
+        <button class="step-btn" data-dir="prev" disabled>⬅️ 上一步</button>
+        <button class="step-btn" data-dir="next">下一步 ➡️</button>
+      </div>
+    </div>
+
+    <div class="question-box reveal">
+      <h4>❓ 想一想</h4>
+      <ul>
+        <li>🤔 滾筒上的凸點代表什麼？跟真正音樂盒的哪個部分一樣？</li>
+        <li>🤔 為什麼齒片要做不同長度？</li>
+        <li>🤔 如果想讓音樂盒自己轉，可以用什麼方法？</li>
+      </ul>
+    </div>
+
+    <div class="connection-box reveal" style="background: linear-gradient(135deg, #FEF3C7, #FED7AA);">
+      🏆 <strong>恭喜！</strong>你做出了一個真正的音樂盒！滾筒 = 曲譜、凸點 = 音符、冰棒棍 = 音梳齒片、紙盒 = 共鳴箱。所有原理都用上了！
+    </div>
+
+    <div class="warning-box reveal">
+      <span class="warn-icon">⚠️</span>
+      <div><ul>
+        <li>⚠️ <strong>熱熔膠槍高溫！</strong>由老師操作或嚴格指導</li>
+        <li>竹籤尖端用膠帶包起來避免刺傷</li>
+        <li>裁切冰棒棍由老師代勞</li>
+      </ul></div>
+    </div>
+
+    <div class="extension-box reveal">
+      <h4>🚀 延伸挑戰</h4>
+      <ul>
+        <li>設計自己的旋律（在方格紙上先規劃凸點位置）</li>
+        <li>加裝小馬達變成電動音樂盒</li>
+        <li>全班音樂盒展覽會 🎪</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 總複習小測驗 ============ -->
+<section class="quiz-section" id="quiz">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-badge badge-gold">🎓 總複習</span>
+      <h2 class="section-title">你學到了多少？來測驗看看！</h2>
+      <p class="section-subtitle">5 題選擇題，測試你對音樂盒科學原理的了解 💪</p>
+    </div>
+
+    <div id="quiz-container">
+      <!-- Q1 -->
+      <div class="quiz-card reveal" data-quiz="1">
+        <div class="quiz-question"><span class="quiz-q-number">1</span><span>聲音是怎麼產生的？</span></div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-correct="false">物體變色時</button>
+          <button class="quiz-option" data-correct="true">物體振動時</button>
+          <button class="quiz-option" data-correct="false">物體變大時</button>
+          <button class="quiz-option" data-correct="false">物體靜止時</button>
+        </div>
+        <div class="quiz-explanation">✅ 聲音是由物體<strong>振動</strong>產生的！音樂盒的齒片被撥動後振動，就是這個原理。</div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card reveal" data-quiz="2">
+        <div class="quiz-question"><span class="quiz-q-number">2</span><span>尺子伸出桌面越長，發出的聲音會？</span></div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-correct="false">越高</button>
+          <button class="quiz-option" data-correct="true">越低</button>
+          <button class="quiz-option" data-correct="false">不變</button>
+          <button class="quiz-option" data-correct="false">消失</button>
+        </div>
+        <div class="quiz-explanation">✅ 伸出越長 → 振動越<strong>慢</strong> → 聲音越<strong>低</strong>。就像音樂盒裡長齒片發低音！</div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card reveal" data-quiz="3">
+        <div class="quiz-question"><span class="quiz-q-number">3</span><span>音樂盒為什麼需要「木盒」？</span></div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-correct="false">因為比較漂亮</button>
+          <button class="quiz-option" data-correct="false">因為可以防水</button>
+          <button class="quiz-option" data-correct="true">因為共鳴箱可以放大聲音</button>
+          <button class="quiz-option" data-correct="false">因為比較重不會倒</button>
+        </div>
+        <div class="quiz-explanation">✅ 木盒是一個<strong>共鳴箱</strong>，可以放大齒片的振動，讓聲音變得更大更好聽！</div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card reveal" data-quiz="4">
+        <div class="quiz-question"><span class="quiz-q-number">4</span><span>水杯鐘琴中，水越多的杯子聲音越？</span></div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-correct="true">越低</button>
+          <button class="quiz-option" data-correct="false">越高</button>
+          <button class="quiz-option" data-correct="false">越大聲</button>
+          <button class="quiz-option" data-correct="false">完全沒聲音</button>
+        </div>
+        <div class="quiz-explanation">✅ 水越多 → 杯壁被壓住越多 → 振動越<strong>慢</strong> → 聲音越<strong>低</strong>！</div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card reveal" data-quiz="5">
+        <div class="quiz-question"><span class="quiz-q-number">5</span><span>傳聲筒的線如果鬆掉了，會怎樣？</span></div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-correct="false">聲音變更大</button>
+          <button class="quiz-option" data-correct="false">聲音不變</button>
+          <button class="quiz-option" data-correct="true">幾乎聽不到聲音</button>
+          <button class="quiz-option" data-correct="false">聲音變成回音</button>
+        </div>
+        <div class="quiz-explanation">✅ 線鬆了就無法有效傳遞振動，所以<strong>幾乎聽不到</strong>！線要拉緊才能傳聲。</div>
+      </div>
+    </div>
+
+    <!-- 成績結果 -->
+    <div class="quiz-result" id="quiz-result">
+      <div style="font-size:3rem; margin-bottom:12px;">🎉</div>
+      <div class="quiz-score" id="quiz-score">0 / 5</div>
+      <p style="margin-top:12px; color:#4B4578;">你太棒了！繼續探索聲音的奧秘吧！</p>
+      <button class="sim-play-btn" id="quiz-retry" style="margin-top:20px;">🔄 再試一次</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <p>🎵 音樂盒裡的科學秘密 — 互動教學實驗 🎵</p>
+  <p style="margin-top:8px;">適合國小 1～6 年級 ｜ 探索聲音、振動、共鳴的奧妙世界</p>
+</footer>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/wave-sim.js"></script>
+<script src="js/glass-piano.js"></script>
+<script src="js/music-box-3d.js"></script>
+<script src="js/resonance.js"></script>
+</body>
+</html>
